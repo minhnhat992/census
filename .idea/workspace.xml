@@ -62,6 +62,10 @@
       <screen x="0" y="0" width="3840" height="1560" />
     </state>
     <state x="2660" y="525" key="FileChooserDialogImpl/0.0.3840.1560/3840.-1041.1728.3032@0.0.3840.1560" timestamp="1579451528616" />
+    <state width="967" height="783" key="XDebugger.FullValuePopup" timestamp="1579484683431">
+      <screen x="0" y="0" width="3840" height="1560" />
+    </state>
+    <state width="967" height="783" key="XDebugger.FullValuePopup/0.0.3840.1560/3840.-1041.1728.3032@0.0.3840.1560" timestamp="1579484683431" />
     <state x="1621" y="604" key="com.intellij.ide.util.TipDialog" timestamp="1579458737647">
       <screen x="0" y="0" width="3840" height="1560" />
     </state>
@@ -70,16 +74,5 @@
       <screen x="0" y="0" width="3840" height="1560" />
     </state>
     <state x="2521" y="513" width="700" height="530" key="recent.locations.popup/0.0.3840.1560/3840.-1041.1728.3032@0.0.3840.1560" timestamp="1579447149533" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/postgre_SQL_connection.py</url>
-          <line>49</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

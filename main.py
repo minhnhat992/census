@@ -3,7 +3,26 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-import pprint as pp
+import requests
+import pandas as pd
+
+# connect to census api to pull total population and total poverty by Zip Codes
+## set URL
+URL = "https://api.census.gov/data/2018/acs/acs5?get=NAME,B01003_001E,B17001_002E&for=zip%20code%20tabulation%20area:*"
+
+## sending get request and saving the response as response object
+r = requests.get(url=URL)
+
+## extracting data in json format
+data = r.json()
+
+## convert to data frame and change column names
+ACS_poverty_population = pd.DataFrame(data)
+ACS_poverty_population = ACS_poverty_population.iloc[1:]
+ACS_poverty_population.columns = ['Zip_Code_Name', 'Total_Population','Total_Poverty','Zip_Code']
+ACS_poverty_population
+# import 
+
 
 #due to api key techincal error, had to manually pull raw data from American Fact Finder
 # pulling list of zip codes, total population by zip, population classfifed as poverty by zip
@@ -68,7 +87,7 @@ test_df['Poverty_rate'] = test_df['Total_Poverty']/test_df['Total_Population']
 
 # Filter for the top 10 most inflicted zip codes by sorting for the most populous but with the highest poverty rate.
 test_df = test_df.sort_values(by = ['Total_Population','Poverty_rate'],ascending=False).head(10)
-test_df.to_sql("Top_10_Poverty", con=db, if_exists='replace',index#False)
+test_df.to_sql("Top_10_Poverty", con=db, if_exists='replace',index=False)
 
 
 
